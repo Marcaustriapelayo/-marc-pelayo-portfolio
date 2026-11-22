@@ -2,5 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /tools/
 
-# TODO (Marc): replace YOUR-DOMAIN with your real domain
-Sitemap: https://YOUR-DOMAIN/sitemap.xml
+Sitemap: https://marc-pelayo-portfolio.vercel.app/sitemap.xml
