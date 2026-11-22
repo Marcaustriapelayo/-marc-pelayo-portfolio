@@ -94,10 +94,10 @@ window.SITE_CONFIG = {
      While any of the first three still says PASTE_…, the form automatically
      uses FormSubmit instead (see below), so it never stops working.        */
   EMAILJS: {
-    publicKey:  'PASTE_PUBLIC_KEY',
-    serviceId:  'PASTE_SERVICE_ID',
-    templateId: 'PASTE_NOTIFICATION_TEMPLATE_ID',
-    autoReplyTemplateId: 'PASTE_AUTOREPLY_TEMPLATE_ID'  // '' = no auto-reply
+    publicKey:  '-Eebvy1hAHG7ZoZgn',
+    serviceId:  'service_1dd56ei',
+    templateId: 'template_c27c20i',
+    autoReplyTemplateId: 'template_n3g4ngs'  // '' = no auto-reply
   },
 
   CONTACT_EMAIL: 'marcaustriapelayo@gmail.com',
