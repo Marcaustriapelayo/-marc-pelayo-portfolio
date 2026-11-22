@@ -1,0 +1,7 @@
+CLAUDE_CODE_PROMPT*.md
+Design System/
+tools/
+node_modules/
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-boot>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marc Adrian Pelayo — IT Support &amp; Junior Web Developer | Metro Manila</title>
+<meta name="description" content="IT Support and Junior Web Developer based in Caloocan, Metro Manila. PC building, repair, OS installation, LAN setup, and PHP/MySQL web systems. Open for OJT, internship and junior roles.">
+<!-- TODO (Marc): replace YOUR-DOMAIN with your real domain everywhere (see README) -->
+<link rel="canonical" href="https://YOUR-DOMAIN/">
+<meta name="theme-color" content="#F3E4CB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1F0E02" media="(prefers-color-scheme: dark)">
+<!-- Link preview (Facebook, Messenger, LinkedIn, Discord, X) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://YOUR-DOMAIN/">
+<meta property="og:title" content="Marc Adrian Pelayo — IT Support &amp; Junior Web Developer | Metro Manila">
+<meta property="og:description" content="IT Support and Junior Web Developer based in Caloocan, Metro Manila. PC building, repair, OS installation, LAN setup, and PHP/MySQL web systems. Open for OJT, internship and junior roles.">
+<meta property="og:image" content="https://YOUR-DOMAIN/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Marc Adrian Pelayo — BS IT · Web Systems · Hardware · Networking">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Marc Adrian Pelayo — IT Support &amp; Junior Web Developer | Metro Manila">
+<meta name="twitter:description" content="IT Support and Junior Web Developer based in Caloocan, Metro Manila. PC building, repair, OS installation, LAN setup, and PHP/MySQL web systems. Open for OJT, internship and junior roles.">
+<meta name="twitter:image" content="https://YOUR-DOMAIN/assets/og-image.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="js/theme-init.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<!-- Analytics (privacy-friendly, no cookies). Pick ONE, put your ID in, and remove the comment marks.
+     GoatCounter: replace YOUR-CODE with your GoatCounter code.
+<script data-goatcounter="https://YOUR-CODE.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+     Cloudflare Web Analytics: replace YOUR-TOKEN with your token.
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR-TOKEN"}'></script>
+-->
+</head>
+<body>
+
+<!-- BIOS boot intro (first visit only; skipped with reduced motion). Decorative: hidden from screen readers. -->
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot-screen">
+    <div class="boot-lines">
+      <span class="bl bl-title">MP-BIOS v2026  ·  <b>Marc Adrian Pelayo</b></span>
+      <span class="bl">Checking CPU ........ Programming   <b>OK</b></span>
+      <span class="bl">Checking RAM ........ IT Support    <b>OK</b></span>
+      <span class="bl">Checking NIC ........ Networking    <b>OK</b></span>
+      <span class="bl">Checking PSU ........ Hardware      <b>OK</b></span>
+      <span class="bl">Loading PHP ......................  <b>OK</b></span>
+      <span class="bl">Loading MySQL ....................  <b>OK</b></span>
+      <span class="bl bl-last">Booting portfolio <i class="boot-cur">▍</i></span>
+    </div>
+    <div class="boot-bar"><span></span></div>
+    <p class="boot-hint">Press Esc to skip</p>
+  </div>
+  <button class="boot-skip" type="button" tabindex="-1">Skip ›</button>
+  <div class="boot-flash"></div>
+</div>
+
+<!-- Scroll progress bar -->
+<div class="scroll-progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<!-- Animated background: blobs + tech grid with signals -->
+<div class="bg-fx" aria-hidden="true">
+  <div class="bg-blobs"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+  <div class="bg-grid-wrap">
+    <div class="bg-grid"><span class="signal"></span><span class="signal v"></span><span class="signal"></span><span class="signal v"></span></div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="nav-left">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+        <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <a class="logo" href="#top"><span class="logo-mark">MP</span> <span class="logo-text">Marc Pelayo</span></a>
+    </div>
+    <div class="nav-right">
+    <button class="theme-btn" id="themeBtn" aria-label="Switch light or dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <span class="lbl" id="themeLbl">Dark mode</span>
+    </button>
+    </div>
+  </div>
+</header>
+
+<!-- Left sidebar menu -->
+<div class="scrim" id="scrim"></div>
+<aside class="sidebar" id="sidebar" aria-label="Site menu" inert>
+  <div class="side-head">
+    <span class="logo"><span class="logo-mark">MP</span> <span class="mono">Menu</span></span>
+    <button class="side-close" id="sideClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <nav aria-label="Sections">
+    <ol class="side-links">
+      <li style="--i:0"><a href="#top"><span class="mono">00</span>Home</a></li>
+      <li style="--i:1"><a href="#needs"><span class="mono">01</span>Your needs</a></li>
+      <li style="--i:2"><a href="#projects"><span class="mono">02</span>Projects</a></li>
+      <li style="--i:3"><a href="#handson"><span class="mono">03</span>Hands-on</a></li>
+      <li style="--i:4"><a href="#skills"><span class="mono">04</span>Skills</a></li>
+      <li style="--i:5"><a href="#experience"><span class="mono">05</span>Experience</a></li>
+      <li style="--i:6"><a href="#certificates"><span class="mono">06</span>Certificates</a></li>
+      <li style="--i:7" hidden><a href="#testimonials"><span class="mono">07</span>Testimonials</a></li>
+      <li style="--i:8"><a href="#contact"><span class="mono">07</span>Contact</a></li>
+    </ol>
+  </nav>
+  <div class="side-foot">
+    <a class="btn btn-primary" href="mailto:marcaustriapelayo@gmail.com">Email me</a>
+    <a class="btn btn-ghost" href="Marc-Adrian-Pelayo-CV.pdf" download target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+      Download CV
+    </a>
+  </div>
+</aside>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="status mono intro" style="--i:0"><span class="dot"></span> Open for OJT · Internship · Junior IT</div>
+        <p class="typer mono intro" style="--i:1">
+          <span class="sr-only">PC Building, PHP &amp; MySQL, LAN Setup, OS Installation</span>
+          <span class="typer-line" aria-hidden="true"><span class="typer-pre">&gt;_</span>&nbsp;<span id="typerText">PC Building</span><span class="caret"></span></span>
+        </p>
+        <h1 class="intro" style="--i:2">Marc Adrian<br><span class="name-u">Pelayo<span class="u-clip" aria-hidden="true"><span class="u-inner"><svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 13 C 60 6, 130 4, 190 8 S 270 15, 296 7"/></svg></span></span></span><em>.</em></h1>
+        <p class="role-line intro" style="--i:3">IT Support <span class="sep" aria-hidden="true">·</span><span class="sr-only">and</span> Junior Web Developer</p>
+        <p class="lead intro" style="--i:4">BS Information Technology student who builds web systems with PHP and MySQL — and fixes, builds and networks the computers they run on.</p>
+        <div class="cta intro" style="--i:5">
+          <a class="btn btn-primary" href="#projects">View my projects
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+          <a class="btn btn-ghost btn-cv" href="Marc-Adrian-Pelayo-CV.pdf" download target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+            Download CV
+          </a>
+        </div>
+        <aside class="avail intro" style="--i:6" aria-labelledby="availTitle">
+          <div class="avail-head">
+            <h2 class="avail-title" id="availTitle"><span class="dot" aria-hidden="true"></span>Availability</h2>
+            <span class="mono avail-open">Open</span>
+          </div>
+          <!-- Rows come from AVAILABILITY in js/config.js -->
+          <dl class="avail-rows" id="availRows"></dl>
+          <div class="avail-btns">
+            <a class="btn btn-ghost btn-sm" href="Marc-Adrian-Pelayo-CV.pdf" download target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+              Download CV
+            </a>
+            <a class="btn btn-primary btn-sm" href="mailto:marcaustriapelayo@gmail.com">Email me</a>
+          </div>
+        </aside>
+        <div class="hero-meta mono intro" style="--i:7">
+          <span>📍 South Caloocan City, PH</span>
+          <span>🎓 Global Reciprocal Colleges</span>
+        </div>
+      </div>
+
+      <div class="stack">
+        <figure class="s1" aria-hidden="true"><div class="bar"><i></i><i></i><i></i></div><img src="assets/techworld-landing.jpg" alt="" width="1600" height="761"></figure>
+        <figure class="s2" aria-hidden="true"><div class="bar"><i></i><i></i><i></i></div><img src="assets/scms-dashboard.jpg" alt="" width="1440" height="900"></figure>
+        <figure class="portrait"><span class="tape" aria-hidden="true"></span><img src="assets/marc-pelayo.jpg" alt="Photo of Marc Adrian Pelayo" width="900" height="848"></figure>
+        <div class="stamp">Best Capstone Nominee<small>OCT 2026</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat"><b>2</b><span>Web systems built</span></div>
+      <div class="stat"><b>37</b><span>Testers on TechWorld, incl. 5 IT experts</span></div>
+      <div class="stat"><b>4</b><span>Skill areas: hardware to code</span></div>
+      <div class="stat"><b>2023</b><span>Started BSIT — working student</span></div>
+    </div>
+  </div>
+
+  <!-- CURRENTLY LEARNING (filled from LEARNING in js/config.js; hidden when empty) -->
+  <div class="learning" id="learning" hidden>
+    <span class="mono learning-label">Currently learning <span aria-hidden="true">→</span></span>
+    <div class="marquee"><div class="marquee-track" id="learningTrack"></div></div>
+  </div>
+
+  <!-- WHAT DOES YOUR TEAM NEED? Decision tree. Content lives in NEEDS inside js/main.js.
+       Shareable links: #need-it, #need-web, #need-analyst, #need-network, #need-ojt -->
+  <section id="needs" class="needs">
+    <div class="wrap">
+      <div class="tree">
+        <div class="tree-root reveal">
+          <span class="mono"><span class="sec-num">01</span> — Quick match</span>
+          <h2>What does your team need?</h2>
+          <p>Choose a branch. The flow will show you what Marc can bring.</p>
+        </div>
+        <span class="tree-stem" aria-hidden="true"></span>
+        <div class="tree-branches" role="group" aria-label="What does your team need?">
+          <button type="button" class="branch" data-need="it" aria-pressed="false" aria-controls="needResult">IT Support</button>
+          <button type="button" class="branch" data-need="web" aria-pressed="false" aria-controls="needResult">Web Developer</button>
+          <button type="button" class="branch" data-need="analyst" aria-pressed="false" aria-controls="needResult">Systems Analyst</button>
+          <button type="button" class="branch" data-need="network" aria-pressed="false" aria-controls="needResult">Network / Hardware</button>
+          <button type="button" class="branch" data-need="ojt" aria-pressed="true" aria-controls="needResult">Intern / OJT</button>
+        </div>
+        <div class="tree-flow">
+          <svg class="tree-wire" aria-hidden="true"><path class="tree-path" pathLength="1" d=""/></svg>
+          <div class="tree-result" id="needResult" aria-live="polite">
+            <noscript><p class="tree-noscript">Intern / OJT: Programming, IT Support, Networking and Hardware. Cisco Python Essentials 1 &amp; 2, Best Capstone nominee (Oct 2026). <a href="mailto:marcaustriapelayo@gmail.com?subject=OJT%20%2F%20Internship%20%E2%80%93%20from%20portfolio">Email Marc</a>.</p></noscript>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><span class="mono"><span class="sec-num">02</span> — Selected work</span><h2>Systems I helped build</h2></div>
+        <p>Click any screenshot to see it full size.</p>
+      </div>
+
+      <!-- TechWorld -->
+      <article class="project reveal" data-gallery>
+        <div class="gallery">
+          <div class="main"><img src="assets/techworld-landing.jpg" alt="TechWorld customer landing page" width="1600" height="761" loading="lazy"></div>
+          <div class="thumbs three">
+            <button aria-current="true" data-src="assets/techworld-landing.jpg" data-cap="Customer landing page"><img src="assets/techworld-landing.jpg" alt="Landing page" width="1600" height="761" loading="lazy"></button>
+            <button data-src="assets/techworld-manager.jpg" data-cap="Manager dashboard"><img src="assets/techworld-manager.jpg" alt="Manager dashboard" width="1600" height="762" loading="lazy"></button>
+            <button data-src="assets/techworld-owner.jpg" data-cap="Owner / super admin dashboard"><img src="assets/techworld-owner.jpg" alt="Owner dashboard" width="1600" height="751" loading="lazy"></button>
+          </div>
+          <p class="caption mono">Customer landing page</p>
+        </div>
+        <div class="p-info">
+          <span class="mono">Capstone · Jan 2026 – Present</span>
+          <h3>TechWorld (ETPCP-AI)</h3>
+          <p class="role">Front-end Developer &amp; Systems Analyst</p>
+          <p class="desc">An online store for computer parts with AI product suggestions and QR code order pickup.</p>
+          <div class="my-part">
+            <span class="mono">My part</span>
+            <ul>
+              <li>Front-end Developer and Systems Analyst.</li>
+              <li>Planned the system flow, business rules and DFDs before coding.</li>
+              <li>Added OTP email checking on user sign-up.</li>
+              <li>Coded the Customer, Admin and Super Admin pages.</li>
+            </ul>
+          </div>
+          <div class="chips"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span></div>
+          <ul>
+            <li>Tested by 37 people, including 5 IT experts.</li>
+          </ul>
+          <div class="award">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.2 7 22l5-3 5 3-1.2-8.8"/></svg>
+            <span><b>Nominated for Best Capstone</b> — October 2026</span>
+          </div>
+          <div class="p-actions">
+            <a class="btn btn-primary btn-sm" href="techworld.html">Read case study <span aria-hidden="true">→</span></a>
+            <button class="btn btn-ghost btn-sm" type="button" data-demo="techworld" data-cap="TechWorld — demo video" hidden>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg> Watch demo
+            </button>
+            <a class="btn btn-ghost btn-sm" data-plink="techworld.live" target="_blank" rel="noopener" hidden>Live demo <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-ghost btn-sm" data-plink="techworld.github" target="_blank" rel="noopener" hidden>GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Student Concern Management -->
+      <article class="project flip reveal" data-gallery>
+        <div class="gallery">
+          <div class="main"><img src="assets/scms-dashboard.jpg" alt="Student Concern Management admin dashboard" width="1440" height="900" loading="lazy"></div>
+          <div class="thumbs">
+            <button aria-current="true" data-src="assets/scms-dashboard.jpg" data-cap="Admin dashboard"><img src="assets/scms-dashboard.jpg" alt="Admin dashboard" width="1440" height="900" loading="lazy"></button>
+            <button data-src="assets/scms-analytics.jpg" data-cap="Department analytics"><img src="assets/scms-analytics.jpg" alt="Analytics" width="1440" height="900" loading="lazy"></button>
+            <button data-src="assets/scms-audit.jpg" data-cap="Audit trail"><img src="assets/scms-audit.jpg" alt="Audit trail" width="1440" height="900" loading="lazy"></button>
+            <button data-src="assets/scms-track.jpg" data-cap="Track a concern by code"><img src="assets/scms-track.jpg" alt="Track concern" width="1440" height="900" loading="lazy"></button>
+            <button data-src="assets/scms-student-login.jpg" data-cap="Student login"><img src="assets/scms-student-login.jpg" alt="Student login" width="1440" height="900" loading="lazy"></button>
+            <button data-src="assets/scms-staff-login.jpg" data-cap="Staff / admin login"><img src="assets/scms-staff-login.jpg" alt="Staff login" width="1440" height="900" loading="lazy"></button>
+          </div>
+          <p class="caption mono">Admin dashboard</p>
+        </div>
+        <div class="p-info">
+          <span class="mono">Team CTRL+ALT+DEFEAT · 2026</span>
+          <h3>Student Concern Management System</h3>
+          <p class="role">Team Member</p>
+          <p class="desc">A website where students send concerns and track them with a code.</p>
+          <div class="my-part">
+            <span class="mono">My part</span>
+            <ul>
+              <li>Team Member.</li>
+              <!-- TODO (Marc): what you built in this project -->
+              <li class="todo-line" data-draft hidden>[TODO (Marc): what you built in this project, e.g. which pages, the AI routing, the database…]</li>
+            </ul>
+          </div>
+          <div class="chips"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">Tailwind CSS</span><span class="chip">Hugging Face API</span></div>
+          <ul>
+            <li>AI routes each concern to the right school office.</li>
+            <li>Staff work on each concern until it is solved.</li>
+            <li>Admin side has analytics, audit trail and staff accounts.</li>
+          </ul>
+          <div class="p-actions">
+            <button class="btn btn-ghost btn-sm" type="button" data-demo="scms" data-cap="Student Concern Management System — demo video" hidden>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg> Watch demo
+            </button>
+            <a class="btn btn-ghost btn-sm" data-plink="scms.live" target="_blank" rel="noopener" hidden>Live demo <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-ghost btn-sm" data-plink="scms.github" target="_blank" rel="noopener" hidden>GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- HANDS-ON IT WORK. Cards come from IT_JOBS in js/config.js; photos go in assets/jobs/ -->
+  <!-- TODO (Marc): replace the [TODO] jobs in js/config.js with real jobs you did -->
+  <section id="handson" class="alt-bg" hidden>
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><span class="mono"><span class="sec-num">03</span> — Hands-on</span><h2>Real IT work,<br>not just theory</h2></div>
+        <p>PC builds, repairs and network setups I did myself. Each one: the problem, what I did, and the result.</p>
+      </div>
+      <p class="draft-note" id="jobsDraft" hidden><b>Draft — add real jobs.</b> Edit IT_JOBS in js/config.js, then set SHOW_DRAFT_JOBS to false before going live.</p>
+      <div class="job-filters reveal" role="group" aria-label="Filter jobs by type">
+        <button type="button" class="filter" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="filter" data-filter="build" aria-pressed="false">PC Builds</button>
+        <button type="button" class="filter" data-filter="repair" aria-pressed="false">Repairs &amp; Upgrades</button>
+        <button type="button" class="filter" data-filter="network" aria-pressed="false">Networking</button>
+      </div>
+      <div class="jobs" id="jobs" aria-live="polite"></div>
+      <p class="jobs-empty" id="jobsEmpty" hidden>No jobs in this category yet.</p>
+    </div>
+  </section>
+
+  <!-- SKILLS: "Build my PC" -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><span class="mono"><span class="sec-num">04</span> — Toolbox</span><h2>From the motherboard<br>to the browser</h2></div>
+        <p>Hands-on with hardware and networks, and able to build the software too. Pick a part to see the skills inside.</p>
+      </div>
+
+      <div class="pc reveal" id="pc">
+        <div class="pc-stage">
+          <svg class="pc-svg" viewBox="0 0 360 440" role="group" aria-label="Open PC case with four parts: CPU, RAM, network card and power supply">
+            <defs>
+              <filter id="pcBlur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7"/></filter>
+              <pattern id="pcGrill" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.3" class="pc-hole"/></pattern>
+            </defs>
+            <!-- case -->
+            <rect class="pc-glow" x="22" y="22" width="316" height="396" rx="12" filter="url(#pcBlur)"/>
+            <rect class="pc-foot" x="44" y="424" width="44" height="10" rx="3"/>
+            <rect class="pc-foot" x="272" y="424" width="44" height="10" rx="3"/>
+            <rect class="pc-shell" x="6" y="6" width="348" height="422" rx="18"/>
+            <rect class="pc-window" x="22" y="22" width="316" height="396" rx="12"/>
+            <circle class="pc-led" cx="330" cy="14" r="3.2"/>
+            <!-- motherboard + empty slots -->
+            <rect class="pc-board" x="40" y="38" width="226" height="262" rx="6"/>
+            <path class="pc-trace" d="M60 168 H96 V196 H186 M236 186 V232 H244 M64 282 H140 M190 282 H250 M70 186 V214"/>
+            <rect class="pc-io" x="40" y="50" width="16" height="96" rx="2"/>
+            <rect class="pc-slot" x="104" y="74" width="76" height="76" rx="4"/>
+            <rect class="pc-slot" x="199" y="58" width="14" height="116" rx="2"/>
+            <rect class="pc-slot" x="219" y="58" width="14" height="116" rx="2"/>
+            <rect class="pc-slot" x="80" y="244" width="150" height="9" rx="2"/>
+            <path class="pc-shroud" d="M22 316 H338"/>
+            <rect class="pc-slot" x="32" y="326" width="180" height="84" rx="6"/>
+            <!-- front fans -->
+            <g class="pc-fan" transform="translate(300 98)">
+              <circle class="pc-fan-ring" r="29"/>
+              <g class="pc-blades"><path d="M0-5C9-26 24-12 5 0Z"/><path d="M0-5C9-26 24-12 5 0Z" transform="rotate(90)"/><path d="M0-5C9-26 24-12 5 0Z" transform="rotate(180)"/><path d="M0-5C9-26 24-12 5 0Z" transform="rotate(270)"/></g>
+              <circle class="pc-hub" r="6"/>
+            </g>
+            <g class="pc-fan" transform="translate(300 182)">
+              <circle class="pc-fan-ring" r="29"/>
+              <g class="pc-blades"><path d="M0-5C9-26 24-12 5 0Z"/><path d="M0-5C9-26 24-12 5 0Z" transform="rotate(90)"/><path d="M0-5C9-26 24-12 5 0Z" transform="rotate(180)"/><path d="M0-5C9-26 24-12 5 0Z" transform="rotate(270)"/></g>
+              <circle class="pc-hub" r="6"/>
+            </g>
+            <g class="pc-fan" transform="translate(300 266)">
+              <circle class="pc-fan-ring" r="29"/>
+              <g class="pc-blades"><path d="M0-5C9-26 24-12 5 0Z"/><path d="M0-5C9-26 24-12 5 0Z" transform="rotate(90)"/><path d="M0-5C9-26 24-12 5 0Z" transform="rotate(180)"/><path d="M0-5C9-26 24-12 5 0Z" transform="rotate(270)"/></g>
+              <circle class="pc-hub" r="6"/>
+            </g>
+
+            <!-- parts (focusable). --fx/--fy = where each part slides in from -->
+            <g class="pc-part" data-part="cpu" tabindex="0" role="button" aria-pressed="true" aria-controls="pc-cpu" aria-label="CPU: Programming" style="--k:0;--fx:0px;--fy:-56px">
+              <rect class="pc-hit" x="96" y="66" width="92" height="92" rx="8"/>
+              <rect class="pc-body" x="108" y="78" width="68" height="68" rx="5"/>
+              <path class="pc-pins" d="M116 78v-4M126 78v-4M136 78v-4M146 78v-4M156 78v-4M166 78v-4M116 146v4M126 146v4M136 146v4M146 146v4M156 146v4M166 146v4M108 88h-4M108 100h-4M108 112h-4M108 124h-4M108 136h-4M176 88h4M176 100h4M176 112h4M176 124h4M176 136h4"/>
+              <rect class="pc-detail" x="122" y="92" width="40" height="40" rx="3"/>
+              <text class="pc-label pc-label-in" x="142" y="116">CPU</text>
+            </g>
+            <g class="pc-part" data-part="ram" tabindex="0" role="button" aria-pressed="false" aria-controls="pc-ram" aria-label="RAM: IT Support" style="--k:1;--fx:0px;--fy:-70px">
+              <rect class="pc-hit" x="190" y="50" width="52" height="150" rx="6"/>
+              <rect class="pc-body" x="201" y="60" width="10" height="112" rx="2"/>
+              <rect class="pc-body" x="221" y="60" width="10" height="112" rx="2"/>
+              <path class="pc-chips" d="M203 70h6v12h-6zM203 92h6v12h-6zM203 114h6v12h-6zM203 136h6v12h-6zM223 70h6v12h-6zM223 92h6v12h-6zM223 114h6v12h-6zM223 136h6v12h-6z"/>
+              <text class="pc-label" x="216" y="192">RAM</text>
+            </g>
+            <g class="pc-part" data-part="nic" tabindex="0" role="button" aria-pressed="false" aria-controls="pc-nic" aria-label="Network card: Networking" style="--k:2;--fx:90px;--fy:0px">
+              <rect class="pc-hit" x="44" y="204" width="196" height="56" rx="6"/>
+              <rect class="pc-body" x="76" y="222" width="152" height="24" rx="3"/>
+              <rect class="pc-body" x="56" y="212" width="12" height="44" rx="2"/>
+              <rect class="pc-detail" x="58" y="226" width="8" height="10" rx="1"/>
+              <rect class="pc-detail" x="168" y="227" width="24" height="14" rx="2"/>
+              <path class="pc-gold" d="M104 246h72"/>
+              <text class="pc-label" x="122" y="238">NIC</text>
+            </g>
+            <g class="pc-part" data-part="psu" tabindex="0" role="button" aria-pressed="false" aria-controls="pc-psu" aria-label="Power supply: Hardware" style="--k:3;--fx:-110px;--fy:0px">
+              <rect class="pc-hit" x="30" y="322" width="186" height="94" rx="8"/>
+              <rect class="pc-body" x="40" y="334" width="166" height="68" rx="6"/>
+              <circle class="pc-grill" cx="156" cy="368" r="25"/>
+              <rect class="pc-detail" x="48" y="344" width="9" height="13" rx="2"/>
+              <text class="pc-label" x="86" y="372">PSU</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="pc-panel">
+          <p class="mono pc-status" id="pcStatus" aria-hidden="true">POST · 4/4 parts detected</p>
+          <div class="pc-info" aria-live="polite">
+            <div class="pc-item" id="pc-cpu" data-part="cpu">
+              <span class="mono pc-slotname">Part 01 · CPU — processor</span>
+              <h3>Programming</h3>
+              <ul class="chips" aria-label="Programming skills"><li class="chip">PHP</li><li class="chip">MySQL</li><li class="chip">JavaScript</li><li class="chip">HTML/CSS</li><li class="chip">Tailwind CSS</li><li class="chip">System Flow / DFD</li></ul>
+            </div>
+            <div class="pc-item" id="pc-ram" data-part="ram">
+              <span class="mono pc-slotname">Part 02 · RAM — memory</span>
+              <h3>IT Support</h3>
+              <ul class="chips" aria-label="IT Support skills"><li class="chip">BIOS/UEFI Setup &amp; Troubleshooting</li><li class="chip">OS Installation</li><li class="chip">System Cleaning</li></ul>
+            </div>
+            <div class="pc-item" id="pc-nic" data-part="nic">
+              <span class="mono pc-slotname">Part 03 · NIC — network card</span>
+              <h3>Networking</h3>
+              <ul class="chips" aria-label="Networking skills"><li class="chip">LAN Setup</li><li class="chip">Routers</li><li class="chip">Cabling</li></ul>
+            </div>
+            <div class="pc-item" id="pc-psu" data-part="psu">
+              <span class="mono pc-slotname">Part 04 · PSU — power supply</span>
+              <h3>Hardware</h3>
+              <ul class="chips" aria-label="Hardware skills"><li class="chip">Repair</li><li class="chip">Custom PC Building</li><li class="chip">Upgrades (RAM, CPU, GPU, SSD)</li></ul>
+            </div>
+          </div>
+          <div class="pc-ctrl">
+            <button class="btn btn-ghost btn-sm pc-power" type="button" id="pcPower">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v8M6.6 6.6a8 8 0 1 0 10.8 0"/></svg>
+              Power on
+            </button>
+            <span class="mono pc-hint">Hover or tap a part</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE + EDUCATION -->
+  <section id="experience" class="alt-bg">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><span class="mono"><span class="sec-num">05</span> — Background</span><h2>Work &amp; school</h2></div>
+        <p>A working student — reliable, on time and always ready to learn.</p>
+      </div>
+      <div class="two">
+        <div class="reveal">
+          <h3>Experience</h3>
+          <ol class="timeline">
+            <li>
+              <span class="mono when">Mar 2025 – Present</span>
+              <h4>Delivery Rider &amp; TNVS Driver (Freelance)</h4>
+              <span class="mono xfer-tag">Transferable to IT Support</span>
+              <ul class="ride-stats" aria-label="Customer ratings and trips">
+                <li><b>5.0★</b> Move It</li>
+                <li><b>4.9★</b> Angkas</li>
+                <li><b>4.8★</b> Lalamove</li>
+                <li><b>2,860+</b> trips</li>
+              </ul>
+              <p>Lalamove, Joyride, Move It and Angkas.</p>
+              <ul class="xfer-list">
+                <li>Deliver items and drive passengers safely and on time around Metro Manila.</li>
+                <li><b>Customer service:</b> talk with customers politely, every day.</li>
+                <li><b>Problem solving under pressure:</b> plan and change routes fast with navigation apps.</li>
+                <li><b>Reliability:</b> working student who manages work and school schedules.</li>
+                <li>Highly rated by customers: 5.0★ on Move It, 4.9★ on Angkas, 4.8★ on Lalamove — 1,740 rides since March 2025 and 1,120 Lalamove deliveries.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+        <div class="reveal">
+          <h3>Education</h3>
+          <ol class="timeline">
+            <li><span class="mono when">2023 – Present</span><h4>BS Information Technology</h4><p>Global Reciprocal Colleges</p></li>
+            <li><span class="mono when">2021 – 2023</span><h4>Senior High School</h4><p>Holy Cross College, Sta. Ana, Pampanga</p></li>
+            <li><span class="mono when">2017 – 2021</span><h4>High School</h4><p>Paralaya High School, Candaba, Pampanga</p></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><span class="mono"><span class="sec-num">06</span> — Learning</span><h2>Certificates &amp; seminars</h2></div>
+      </div>
+      <div class="certs">
+        <div class="cert reveal">
+          <span class="mono" style="color:var(--accent-text)">Nov 2024</span>
+          <h4>Python Essentials 1 and 2</h4>
+          <p>Cisco Networking Academy &amp; OpenEDG Python Institute</p>
+          <div class="badges">
+            <figure><img src="assets/python-essentials-1.png" alt="Cisco Python Essentials 1 verified badge" width="1200" height="494" loading="lazy" data-zoom data-cap="Python Essentials 1 — Cisco Networking Academy"><figcaption class="mono">Python Essentials 1</figcaption></figure>
+            <figure><img src="assets/python-essentials-2.png" alt="Cisco Python Essentials 2 verified badge" width="1200" height="486" loading="lazy" data-zoom data-cap="Python Essentials 2 — Cisco Networking Academy"><figcaption class="mono">Python Essentials 2</figcaption></figure>
+          </div>
+        </div>
+        <div class="cert photo reveal">
+          <img src="assets/asean-seminar.jpg" alt="ASEAN Data Science Explorers seminar at GRC" width="1200" height="848" loading="lazy" data-zoom data-cap="ASEAN Data Science Explorers — July 2026">
+          <div class="txt">
+            <span class="mono" style="color:var(--accent-text)">Jul 2026</span>
+            <h4>ASEAN Data Science Explorers Seminar</h4>
+            <p>Break The Fake Movement, held at Global Reciprocal Colleges.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS (filled from TESTIMONIALS in js/config.js; hidden while the list is empty) -->
+  <section id="testimonials" hidden>
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><span class="mono"><span class="sec-num">07</span> — Kind words</span><h2>What people say</h2></div>
+      </div>
+      <div class="quotes" id="quotes"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact reveal">
+        <div class="c-head">
+          <span class="mono" style="opacity:.7"><span class="sec-num">07</span> — Contact</span>
+          <h2 style="margin-top:12px">Let's work<br><em>together.</em></h2>
+          <p>Open to IT support, programming or other IT roles — internship, OJT or junior position.</p>
+          <div class="c-btns">
+            <a class="btn btn-primary" href="mailto:marcaustriapelayo@gmail.com">Email me</a>
+            <a class="btn btn-ghost" href="Marc-Adrian-Pelayo-CV.pdf" download target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+              Download CV
+            </a>
+          </div>
+        </div>
+
+        <form class="c-form" id="contactForm" action="contact.php" method="post" novalidate>
+          <h3 class="c-form-title">Send a message</h3>
+          <div class="f-grid">
+            <div class="field">
+              <label for="fName">Name</label>
+              <input id="fName" name="name" type="text" autocomplete="name" maxlength="100" required aria-describedby="fNameErr">
+              <p class="f-err" id="fNameErr"></p>
+            </div>
+            <div class="field">
+              <label for="fEmail">Email</label>
+              <input id="fEmail" name="email" type="email" autocomplete="email" maxlength="150" required aria-describedby="fEmailErr">
+              <p class="f-err" id="fEmailErr"></p>
+            </div>
+          </div>
+          <div class="field">
+            <label for="fSubject">Subject</label>
+            <select id="fSubject" name="subject" required aria-describedby="fSubjectErr">
+              <option value="" selected disabled>Choose a subject</option>
+              <option>Internship / OJT</option>
+              <option>Job offer</option>
+              <option>Freelance / PC repair</option>
+              <option>Other</option>
+            </select>
+            <p class="f-err" id="fSubjectErr"></p>
+          </div>
+          <div class="field">
+            <label for="fMessage">Message</label>
+            <textarea id="fMessage" name="message" rows="5" maxlength="5000" required aria-describedby="fMessageErr"></textarea>
+            <p class="f-err" id="fMessageErr"></p>
+          </div>
+          <!-- Honeypot: real people never see or fill this; bots do -->
+          <div class="hp" aria-hidden="true">
+            <label for="fGotcha">Leave this field empty</label>
+            <input id="fGotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <button class="btn btn-primary f-send" type="submit">
+            <span class="f-spin" aria-hidden="true"></span><span class="f-label">Send message</span>
+          </button>
+          <div class="f-status" id="formStatus" role="status" aria-live="polite" tabindex="-1"></div>
+        </form>
+
+        <div class="c-side">
+          <div class="links">
+            <a href="mailto:marcaustriapelayo@gmail.com"><span class="l-main"><svg class="l-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>marcaustriapelayo@gmail.com</span><span class="mono">Email</span></a>
+            <a href="tel:+639269391284"><span class="l-main"><svg class="l-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>0926 939 1284</span><span class="mono">Mobile</span></a>
+            <!-- URLs come from SOCIAL_LINKS in js/config.js -->
+            <a href="https://github.com/Marcaustriapelayo" target="_blank" rel="noopener" data-link="github"><span class="l-main"><svg class="l-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.82-.26.82-.57v-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.69.82.57A12 12 0 0 0 12 .3"/></svg>Marcaustriapelayo</span><span class="mono">GitHub <span class="arr" aria-hidden="true">↗</span></span></a>
+            <a href="https://www.facebook.com/marc.pelayo.75" target="_blank" rel="noopener" data-link="facebook"><span class="l-main"><svg class="l-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.1 23.69v-7.98H6.63v-3.67H9.1v-1.58c0-4.09 1.85-5.98 5.86-5.98.4 0 .96.04 1.47.1.42.04.83.11 1.14.2v3.32a8.6 8.6 0 0 0-1.39-.05c-.71 0-1.26.1-1.68.31-.29.15-.52.36-.68.63-.26.42-.37.99-.37 1.75v1.3h3.92l-.67 3.67h-3.25v8.24A12 12 0 1 0 9.1 23.69Z"/></svg>Marc Pelayo</span><span class="mono">Facebook <span class="arr" aria-hidden="true">↗</span></span></a>
+            <a href="https://www.linkedin.com/in/pelayo-marc-73b771451" target="_blank" rel="noopener" data-link="linkedin"><span class="l-main"><svg class="l-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>Marc Pelayo</span><span class="mono">LinkedIn <span class="arr" aria-hidden="true">↗</span></span></a>
+          </div>
+          <figure class="qr">
+            <img src="assets/portfolio-qr.svg" alt="QR code that opens this portfolio" width="120" height="120" loading="lazy">
+            <figcaption class="mono">Scan to open on your phone</figcaption>
+          </figure>
+        </div>
+
+        <div class="refs"><b>References:</b> Mr. Kensun (CEO, First Hotel) · Mr. King Russel De Jesus (Manager, First Hotel) — contact details on request.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Marc Adrian Pelayo</span>
+    <span class="foot-r">
+      <nav class="social" aria-label="Contact and social links">
+        <a class="soc" href="mailto:marcaustriapelayo@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+        <a class="soc" href="tel:+639269391284" aria-label="Call or text 0926 939 1284"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></a>
+        <a class="soc" href="https://github.com/Marcaustriapelayo" target="_blank" rel="noopener" data-social="github" aria-label="GitHub (opens in a new tab)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.82-.26.82-.57v-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.69.82.57A12 12 0 0 0 12 .3"/></svg></a>
+        <a class="soc" href="https://www.facebook.com/marc.pelayo.75" target="_blank" rel="noopener" data-social="facebook" aria-label="Facebook (opens in a new tab)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.1 23.69v-7.98H6.63v-3.67H9.1v-1.58c0-4.09 1.85-5.98 5.86-5.98.4 0 .96.04 1.47.1.42.04.83.11 1.14.2v3.32a8.6 8.6 0 0 0-1.39-.05c-.71 0-1.26.1-1.68.31-.29.15-.52.36-.68.63-.26.42-.37.99-.37 1.75v1.3h3.92l-.67 3.67h-3.25v8.24A12 12 0 1 0 9.1 23.69Z"/></svg></a>
+        <a class="soc" href="https://www.linkedin.com/in/pelayo-marc-73b771451" target="_blank" rel="noopener" data-social="linkedin" aria-label="LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
+      </nav>
+      <button class="reboot mono" id="rebootBtn" type="button" aria-label="Replay the boot intro">↻ Reboot</button>
+    </span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Media preview">
+  <button class="lb-close" id="lbClose" type="button" aria-label="Close preview">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <div class="lb-body">
+    <img id="lbImg" alt="">
+    <video id="lbVid" controls playsinline preload="none" hidden></video>
+    <p id="lbCap" class="mono"></p>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

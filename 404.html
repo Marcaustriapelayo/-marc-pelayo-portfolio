@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- Self-contained on purpose: hosts show this page at any broken URL (e.g. /a/b/c),
+     where relative links to css/ and assets/ would break. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Error 404 — Component not found · Marc Adrian Pelayo</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#411E04">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23411E04'/%3E%3Ctext x='32' y='41.5' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='27' fill='%23EBC99D'%3EMP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script>
+  (function(){
+    var t = null;
+    try { t = localStorage.getItem('mp-theme'); } catch(e) {}
+    if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<style>
+  [data-theme="light"]{--bg:#F3E4CB;--surface:#FAF1E3;--ink:#411E04;--muted:rgba(65,30,4,.72);--line:rgba(65,30,4,.18);--accent:#0B5CD5;--accent-text:#0B5CD5}
+  [data-theme="dark"]{--bg:#1F0E02;--surface:#411E04;--ink:#EBC99D;--muted:rgba(235,201,157,.72);--line:rgba(235,201,157,.16);--accent:#0B5CD5;--accent-text:#7BAAF3}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    min-height:100vh;display:grid;place-items:center;padding:24px;font-family:"Inter",system-ui,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;
+    background-image:linear-gradient(to right,var(--line) 1px,transparent 1px),linear-gradient(to bottom,var(--line) 1px,transparent 1px);
+    background-size:48px 48px;
+  }
+  .card{width:min(620px,100%);border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--surface);box-shadow:0 22px 50px -24px rgba(0,0,0,.55)}
+  .screen{background:#411E04;color:#EBC99D;padding:28px 26px;font-family:"JetBrains Mono",monospace;font-size:clamp(11px,3.2vw,14px);line-height:1.7;white-space:pre-wrap}
+  .screen b{color:#7BAAF3;font-weight:600}
+  .screen .err{color:#FFB49E}
+  .cur{animation:blink 1s steps(1) infinite;color:#7BAAF3}
+  @keyframes blink{50%{opacity:0}}
+  .body{padding:30px 26px 32px}
+  .mono{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text)}
+  h1{font-family:"Fraunces",Georgia,serif;font-weight:800;font-size:clamp(2rem,7vw,2.8rem);line-height:1.05;margin:8px 0 12px;letter-spacing:-.01em}
+  p{color:var(--muted)}
+  .btn{display:inline-flex;align-items:center;gap:8px;margin-top:24px;padding:13px 22px;border-radius:999px;background:var(--accent);color:#fff;font-weight:600;text-decoration:none;box-shadow:0 10px 24px -12px var(--accent);transition:transform .2s}
+  .btn:hover{transform:translateY(-2px)}
+  :focus-visible{outline:2px solid var(--accent-text);outline-offset:3px;border-radius:6px}
+  @media (prefers-reduced-motion:reduce){.cur{animation:none}.btn{transition:none}}
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="screen" aria-hidden="true">MP-BIOS v2026  ·  POST
+Checking page ......... <span class="err">NOT FOUND</span>
+Error code ............ <b>404</b>
+Press the button to boot home <span class="cur">▍</span></div>
+    <div class="body">
+      <span class="mono">Error 404</span>
+      <h1>Component not found.</h1>
+      <p>This part isn't installed in the case. The link may be old, or the page has moved.</p>
+      <a class="btn" id="homeLink" href="/">← Back to home</a>
+    </div>
+  </main>
+<script>
+  // GitHub Pages "project" sites live under /repo-name/ — send people there instead of the domain root.
+  (function(){
+    var a = document.getElementById('homeLink');
+    if (/\.github\.io$/i.test(location.hostname)) {
+      var seg = location.pathname.split('/')[1];
+      if (seg) a.href = '/' + seg + '/';
+    }
+  })();
+</script>
+</body>
+</html>

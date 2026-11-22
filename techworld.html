@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TechWorld (ETPCP-AI) — Case study · Marc Adrian Pelayo</title>
+<meta name="description" content="Case study: TechWorld, an online store for computer parts with AI product suggestions and QR code order pickup. Capstone project by Marc Adrian Pelayo.">
+<link rel="canonical" href="https://YOUR-DOMAIN/techworld.html">
+<meta name="theme-color" content="#F3E4CB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1F0E02" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://YOUR-DOMAIN/techworld.html">
+<meta property="og:title" content="TechWorld (ETPCP-AI) — Case study by Marc Adrian Pelayo">
+<meta property="og:description" content="An online store for computer parts with AI product suggestions and QR code order pickup. Nominated for Best Capstone, October 2026.">
+<meta property="og:image" content="https://YOUR-DOMAIN/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="js/theme-init.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<!-- Analytics: same snippet as in index.html (commented out until you add your ID)
+<script data-goatcounter="https://YOUR-CODE.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+-->
+</head>
+<body>
+
+<div class="scroll-progress" aria-hidden="true"><span id="progressBar"></span></div>
+<div class="bg-fx" aria-hidden="true">
+  <div class="bg-blobs"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+  <div class="bg-grid-wrap"><div class="bg-grid"><span class="signal"></span><span class="signal v"></span><span class="signal"></span><span class="signal v"></span></div></div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="nav-left">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+        <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <a class="logo" href="index.html"><span class="logo-mark">MP</span> <span class="logo-text">Marc Pelayo</span></a>
+    </div>
+    <div class="nav-right">
+    <button class="theme-btn" id="themeBtn" aria-label="Switch light or dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <span class="lbl" id="themeLbl">Dark mode</span>
+    </button>
+    </div>
+  </div>
+</header>
+
+<div class="scrim" id="scrim"></div>
+<aside class="sidebar" id="sidebar" aria-label="Site menu" inert>
+  <div class="side-head">
+    <span class="logo"><span class="logo-mark">MP</span> <span class="mono">Menu</span></span>
+    <button class="side-close" id="sideClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <nav aria-label="Sections">
+    <ol class="side-links">
+      <li style="--i:0"><a href="index.html#top"><span class="mono">00</span>Home</a></li>
+      <li style="--i:1"><a href="index.html#needs"><span class="mono">01</span>Your needs</a></li>
+      <li style="--i:2"><a href="index.html#projects" class="active" aria-current="page"><span class="mono">02</span>Projects</a></li>
+      <li style="--i:3"><a href="index.html#handson"><span class="mono">03</span>Hands-on</a></li>
+      <li style="--i:4"><a href="index.html#skills"><span class="mono">04</span>Skills</a></li>
+      <li style="--i:5"><a href="index.html#experience"><span class="mono">05</span>Experience</a></li>
+      <li style="--i:6"><a href="index.html#certificates"><span class="mono">06</span>Certificates</a></li>
+      <li style="--i:7" hidden><a href="index.html#testimonials"><span class="mono">07</span>Testimonials</a></li>
+      <li style="--i:8"><a href="index.html#contact"><span class="mono">07</span>Contact</a></li>
+    </ol>
+  </nav>
+  <div class="side-foot">
+    <a class="btn btn-primary" href="mailto:marcaustriapelayo@gmail.com">Email me</a>
+    <a class="btn btn-ghost" href="Marc-Adrian-Pelayo-CV.pdf" download target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+      Download CV
+    </a>
+  </div>
+</aside>
+
+<main id="top">
+  <section class="cs-hero">
+    <div class="wrap">
+      <a class="cs-back mono" href="index.html#projects"><span aria-hidden="true">←</span> Back to projects</a>
+      <span class="mono cs-kicker">Case study · Capstone · Jan 2026 – Present</span>
+      <h1>TechWorld <small>(ETPCP-AI)</small></h1>
+      <p class="lead">An online store for computer parts with AI product suggestions and QR code order pickup.</p>
+      <dl class="cs-facts">
+        <div><dt>My role</dt><dd>Front-end Developer &amp; Systems Analyst</dd></div>
+        <div><dt>Stack</dt><dd>PHP · MySQL · JavaScript · HTML/CSS</dd></div>
+        <div><dt>Evaluated by</dt><dd>37 respondents: 30 customers, 2 managers, 5 IT experts</dd></div>
+        <div><dt>Recognition</dt><dd>Defended Oct 2026 · Best Capstone candidate</dd></div>
+      </dl>
+      <figure class="cs-shot">
+        <div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
+        <img src="assets/techworld-landing.jpg" alt="TechWorld customer landing page" width="1600" height="761" data-zoom data-cap="TechWorld — customer landing page">
+      </figure>
+    </div>
+  </section>
+
+  <nav class="cs-steps" aria-label="Case study steps">
+    <div class="wrap">
+      <ol class="mono">
+        <li><a href="#problem"><span>01</span>Problem</a></li>
+        <li><a href="#planning"><span>02</span>Planning</a></li>
+        <li><a href="#build"><span>03</span>Build</a></li>
+        <li><a href="#testing"><span>04</span>Testing</a></li>
+        <li><a href="#result"><span>05</span>Result</a></li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="cs-sec" id="problem">
+    <div class="wrap cs-grid">
+      <div class="cs-label reveal"><span class="mono">01</span><h2>Problem</h2></div>
+      <div class="cs-body">
+        <div class="cs-overview reveal">
+          <div class="ov-block">
+            <span class="mono ov-tag">Problem</span>
+            <p>TechWorld Computer Store sold hardware in person only. Customers had no easy way to browse products, check compatibility or get recommendations online.</p>
+          </div>
+          <div class="ov-block">
+            <span class="mono ov-tag">Solution</span>
+            <p>A full e-commerce platform where customers configure and buy tech products, get AI-based recommendations, and pick up orders with a QR code. Staff and owners manage stock, orders and deliveries from their own dashboards.</p>
+          </div>
+        </div>
+        <ul class="ov-checks reveal">
+          <li>Defended as a capstone in Oct 2026, candidate for Best Capstone</li>
+          <li>Evaluated by 37 respondents: 30 customers, 2 managers, 5 IT experts</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-sec" id="planning">
+    <div class="wrap cs-grid">
+      <div class="cs-label reveal"><span class="mono">02</span><h2>Planning</h2></div>
+      <div class="cs-body">
+        <p class="reveal">Before writing any code, I planned the system flow, the business rules and the data flow diagrams (DFDs).</p>
+
+        <figure class="flow" aria-labelledby="flowCap">
+          <!-- desktop: 3 × 2 layout -->
+          <svg class="flow-h" viewBox="0 0 960 300" aria-hidden="true">
+            <path id="flTrackH" class="fl-track" d="M160 80H800V220H160"/>
+            <circle class="fl-dot" r="6"><animateMotion dur="7s" repeatCount="indefinite" begin="indefinite"><mpath href="#flTrackH"/></animateMotion></circle>
+            <g class="fl-box key" style="--k:0"><rect x="40" y="40" width="240" height="80" rx="12"/><text class="fl-n" x="54" y="58">01</text><text class="fl-t" x="160" y="82">Customer</text><text class="fl-s" x="160" y="104">Visits the online store</text></g>
+            <g class="fl-box" style="--k:1"><rect x="360" y="40" width="240" height="80" rx="12"/><text class="fl-n" x="374" y="58">02</text><text class="fl-t" x="480" y="82">Browse / AI suggestion</text><text class="fl-s" x="480" y="104">AI product suggestions</text></g>
+            <g class="fl-box" style="--k:2"><rect x="680" y="40" width="240" height="80" rx="12"/><text class="fl-n" x="694" y="58">03</text><text class="fl-t" x="800" y="82">Order</text><text class="fl-s" x="800" y="104">Computer parts</text></g>
+            <g class="fl-box" style="--k:3"><rect x="680" y="180" width="240" height="80" rx="12"/><text class="fl-n" x="694" y="198">04</text><text class="fl-t" x="800" y="222">OTP / Account</text><text class="fl-s" x="800" y="244">Email OTP on sign-up</text></g>
+            <g class="fl-box" style="--k:4"><rect x="360" y="180" width="240" height="80" rx="12"/><text class="fl-n" x="374" y="198">05</text><text class="fl-t" x="480" y="222">QR Pickup</text><text class="fl-s" x="480" y="244">QR code order pickup</text></g>
+            <g class="fl-box key" style="--k:5"><rect x="40" y="180" width="240" height="80" rx="12"/><text class="fl-n" x="54" y="198">06</text><text class="fl-t" x="160" y="222">Admin / Manager</text><text class="fl-s" x="160" y="244">Dashboards</text></g>
+            <g style="--k:0"><path class="fl-line" pathLength="1" d="M280 80H350"/><polygon class="fl-head" points="350,74 360,80 350,86"/></g>
+            <g style="--k:1"><path class="fl-line" pathLength="1" d="M600 80H670"/><polygon class="fl-head" points="670,74 680,80 670,86"/></g>
+            <g style="--k:2"><path class="fl-line" pathLength="1" d="M800 120V170"/><polygon class="fl-head" points="794,170 800,180 806,170"/></g>
+            <g style="--k:3"><path class="fl-line" pathLength="1" d="M680 220H610"/><polygon class="fl-head" points="610,214 600,220 610,226"/></g>
+            <g style="--k:4"><path class="fl-line" pathLength="1" d="M360 220H290"/><polygon class="fl-head" points="290,214 280,220 290,226"/></g>
+          </svg>
+          <!-- phone: vertical layout -->
+          <svg class="flow-v" viewBox="0 0 320 600" aria-hidden="true">
+            <path id="flTrackV" class="fl-track" d="M160 44V554"/>
+            <circle class="fl-dot" r="6"><animateMotion dur="6s" repeatCount="indefinite" begin="indefinite"><mpath href="#flTrackV"/></animateMotion></circle>
+            <g class="fl-box key" style="--k:0"><rect x="40" y="12" width="240" height="64" rx="12"/><text class="fl-n" x="52" y="28">01</text><text class="fl-t" x="160" y="44">Customer</text><text class="fl-s" x="160" y="63">Visits the online store</text></g>
+            <g class="fl-box" style="--k:1"><rect x="40" y="114" width="240" height="64" rx="12"/><text class="fl-n" x="52" y="130">02</text><text class="fl-t" x="160" y="146">Browse / AI suggestion</text><text class="fl-s" x="160" y="165">AI product suggestions</text></g>
+            <g class="fl-box" style="--k:2"><rect x="40" y="216" width="240" height="64" rx="12"/><text class="fl-n" x="52" y="232">03</text><text class="fl-t" x="160" y="248">Order</text><text class="fl-s" x="160" y="267">Computer parts</text></g>
+            <g class="fl-box" style="--k:3"><rect x="40" y="318" width="240" height="64" rx="12"/><text class="fl-n" x="52" y="334">04</text><text class="fl-t" x="160" y="350">OTP / Account</text><text class="fl-s" x="160" y="369">Email OTP on sign-up</text></g>
+            <g class="fl-box" style="--k:4"><rect x="40" y="420" width="240" height="64" rx="12"/><text class="fl-n" x="52" y="436">05</text><text class="fl-t" x="160" y="452">QR Pickup</text><text class="fl-s" x="160" y="471">QR code order pickup</text></g>
+            <g class="fl-box key" style="--k:5"><rect x="40" y="522" width="240" height="64" rx="12"/><text class="fl-n" x="52" y="538">06</text><text class="fl-t" x="160" y="554">Admin / Manager</text><text class="fl-s" x="160" y="573">Dashboards</text></g>
+            <g style="--k:0"><path class="fl-line" pathLength="1" d="M160 76V104"/><polygon class="fl-head" points="154,104 160,114 166,104"/></g>
+            <g style="--k:1"><path class="fl-line" pathLength="1" d="M160 178V206"/><polygon class="fl-head" points="154,206 160,216 166,206"/></g>
+            <g style="--k:2"><path class="fl-line" pathLength="1" d="M160 280V308"/><polygon class="fl-head" points="154,308 160,318 166,308"/></g>
+            <g style="--k:3"><path class="fl-line" pathLength="1" d="M160 382V410"/><polygon class="fl-head" points="154,410 160,420 166,410"/></g>
+            <g style="--k:4"><path class="fl-line" pathLength="1" d="M160 484V512"/><polygon class="fl-head" points="154,512 160,522 166,512"/></g>
+          </svg>
+          <!-- text version for screen readers -->
+          <ol class="sr-only">
+            <li>Customer visits the online store</li>
+            <li>Browse, with AI product suggestions</li>
+            <li>Order computer parts</li>
+            <li>OTP / account: email OTP check on sign-up</li>
+            <li>QR code order pickup</li>
+            <li>Admin / manager dashboards</li>
+          </ol>
+          <figcaption class="mono flow-cap" id="flowCap">System flow — from customer to admin dashboard</figcaption>
+        </figure>
+
+        <!-- TODO (Marc): add your DFD / business rules images here, e.g.
+             <figure class="cs-shot"><img src="assets/techworld-dfd.png" alt="TechWorld level 0 DFD" width="1600" height="900" loading="lazy" data-zoom data-cap="Level 0 DFD"></figure> -->
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-sec" id="build">
+    <div class="wrap cs-grid">
+      <div class="cs-label reveal"><span class="mono">03</span><h2>Build</h2></div>
+      <div class="cs-body">
+        <div class="reveal">
+          <h3>Stack</h3>
+          <div class="chips" style="margin-top:12px"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span></div>
+        </div>
+        <div class="my-part reveal">
+          <span class="mono">My part</span>
+          <ul>
+            <li>Front-end Developer and Systems Analyst.</li>
+            <li>Planned the system flow, business rules and DFDs before coding.</li>
+            <li>Added OTP email checking on user sign-up.</li>
+            <li>Coded the Customer, Admin and Super Admin pages.</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h3>Main features</h3>
+          <ul class="cs-list" style="margin-top:12px">
+            <li>AI-based product recommendations (machine learning)</li>
+            <li>Product configuration and compatibility</li>
+            <li>OTP email verification on sign-up</li>
+            <li>QR code order pickup and verification</li>
+            <li>4 user roles: Customer, Admin (Manager), Super Admin (Owner), Delivery Personnel</li>
+            <li>Per-unit serial / IMEI tracking for returns</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h3>Challenges</h3>
+          <ol class="bugs">
+            <li><span class="mono bug-id">bug#1</span><p>As lead developer, designed the system flow, business logic, DFDs and other diagrams for the whole platform before coding began</p></li>
+            <li><span class="mono bug-id">bug#2</span><p>Planned the security layer: multi-factor authentication (MFA) and Google sign-in for safer logins</p></li>
+            <li><span class="mono bug-id">bug#3</span><p>Added account auto-lock to block unauthorized access</p></li>
+            <li><span class="mono bug-id">bug#4</span><p>Built product identity tracking (unique serial / IMEI per unit) to verify genuine items and secure returns</p></li>
+          </ol>
+        </div>
+        <div class="cs-gallery">
+          <figure class="reveal"><img src="assets/techworld-landing.jpg" alt="TechWorld customer landing page" width="1600" height="761" loading="lazy" data-zoom data-cap="Customer landing page"><figcaption class="mono">Customer landing page</figcaption></figure>
+          <figure class="reveal"><img src="assets/techworld-manager.jpg" alt="TechWorld manager dashboard" width="1600" height="762" loading="lazy" data-zoom data-cap="Manager dashboard"><figcaption class="mono">Manager dashboard</figcaption></figure>
+          <figure class="reveal"><img src="assets/techworld-owner.jpg" alt="TechWorld owner / super admin dashboard" width="1600" height="751" loading="lazy" data-zoom data-cap="Owner / super admin dashboard"><figcaption class="mono">Owner / super admin dashboard</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-sec" id="testing">
+    <div class="wrap cs-grid">
+      <div class="cs-label reveal"><span class="mono">04</span><h2>Testing</h2></div>
+      <div class="cs-body reveal">
+        <figure class="cs-video">
+          <video controls playsinline preload="metadata" src="assets/techworld-testing.mp4">
+            Your browser can't play this video. <a href="assets/techworld-testing.mp4">Download the testing video</a>.
+          </video>
+          <figcaption class="mono">TechWorld testing — video</figcaption>
+        </figure>
+        <!-- TODO (Marc): how was it tested (survey, ISO 25010, test cases?) and what feedback did you get? -->
+        <p class="soon mono">Coming soon — testing method and feedback.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-sec" id="result">
+    <div class="wrap cs-grid">
+      <div class="cs-label reveal"><span class="mono">05</span><h2>Result</h2></div>
+      <div class="cs-body reveal">
+        <div class="award" style="max-width:520px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.2 7 22l5-3 5 3-1.2-8.8"/></svg>
+          <span><b>Defended as a capstone in Oct 2026</b> — candidate for Best Capstone</span>
+        </div>
+        <!-- TODO (Marc): edit these captions if you want to say more (e.g. "After our final defense"). -->
+        <div class="cs-gallery cs-photos">
+          <figure><img src="assets/techworld-result-3.jpg" alt="The TechWorld team and the panel, with the TechWorld site on a laptop" width="1400" height="1050" loading="lazy" data-zoom data-cap="The team and the panel, with TechWorld on screen"><figcaption class="mono">The team and the panel</figcaption></figure>
+          <figure><img src="assets/techworld-result-2.jpg" alt="The team holding the bound capstone papers" width="1400" height="1050" loading="lazy" data-zoom data-cap="The team with the bound capstone papers"><figcaption class="mono">With the bound capstone papers</figcaption></figure>
+          <figure><img src="assets/techworld-result-1.jpg" alt="Team selfie giving thumbs up, with name tags" width="1050" height="1400" loading="lazy" data-zoom data-cap="Team selfie"><figcaption class="mono">Team selfie</figcaption></figure>
+        </div>
+        <!-- TODO (Marc): what did you learn, and what would you improve next? -->
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-next">
+    <div class="wrap">
+      <div class="contact reveal">
+        <div>
+          <span class="mono" style="opacity:.7">Thanks for reading</span>
+          <h2 style="margin-top:10px">See more<br><em>of my work.</em></h2>
+          <p>Back to all projects, or get in touch about an internship, OJT or junior role.</p>
+        </div>
+        <div class="c-btns">
+          <a class="btn btn-primary" href="index.html#projects">All projects <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="index.html#contact">Contact me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Marc Adrian Pelayo</span>
+    <span class="foot-r">
+      <nav class="social" aria-label="Contact and social links">
+        <a class="soc" href="mailto:marcaustriapelayo@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+        <a class="soc" href="tel:+639269391284" aria-label="Call or text 0926 939 1284"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></a>
+        <a class="soc" href="https://github.com/Marcaustriapelayo" target="_blank" rel="noopener" data-social="github" aria-label="GitHub (opens in a new tab)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.82-.26.82-.57v-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.69.82.57A12 12 0 0 0 12 .3"/></svg></a>
+        <a class="soc" href="https://www.facebook.com/marc.pelayo.75" target="_blank" rel="noopener" data-social="facebook" aria-label="Facebook (opens in a new tab)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.1 23.69v-7.98H6.63v-3.67H9.1v-1.58c0-4.09 1.85-5.98 5.86-5.98.4 0 .96.04 1.47.1.42.04.83.11 1.14.2v3.32a8.6 8.6 0 0 0-1.39-.05c-.71 0-1.26.1-1.68.31-.29.15-.52.36-.68.63-.26.42-.37.99-.37 1.75v1.3h3.92l-.67 3.67h-3.25v8.24A12 12 0 1 0 9.1 23.69Z"/></svg></a>
+        <a class="soc" href="https://www.linkedin.com/in/pelayo-marc-73b771451" target="_blank" rel="noopener" data-social="linkedin" aria-label="LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
+      </nav>
+    </span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Media preview">
+  <button class="lb-close" id="lbClose" type="button" aria-label="Close preview">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <div class="lb-body">
+    <img id="lbImg" alt="">
+    <video id="lbVid" controls playsinline preload="none" hidden></video>
+    <p id="lbCap" class="mono"></p>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
