@@ -72,7 +72,9 @@ window.SITE_CONFIG = {
   ],
 
   /* ---------- Contact form ----------
-     'formsubmit' → (DEFAULT, easiest) sends straight to CONTACT_EMAIL with FormSubmit.co.
+     'emailjs'    → (DEFAULT) sends with your custom email designs. Needs the 4 EMAILJS
+                    values below; until they are filled in, 'formsubmit' is used instead.
+     'formsubmit' → (fallback, no account) sends straight to CONTACT_EMAIL with FormSubmit.co.
                     No account needed. The FIRST message sends an "Activate form" email
                     to CONTACT_EMAIL — open it and click Activate once. After that, every
                     message goes straight to the Gmail inbox.
@@ -80,7 +82,24 @@ window.SITE_CONFIG = {
                     (Live Server, Netlify, GitHub Pages), not by double-clicking index.html.
      'formspree'  → needs a free Formspree account; put the form ID in FORMSPREE_ID.
      'php'        → uses contact.php (only on hosting that runs PHP).            */
-  CONTACT_MODE: 'formsubmit',
+  CONTACT_MODE: 'emailjs',  // 'emailjs' | 'formsubmit' | 'formspree' | 'php'
+
+  /* ---------- EmailJS (used when CONTACT_MODE is 'emailjs') ----------
+     Sends the form with your own email designs (tools/email-templates/).
+     Get these 4 values from https://dashboard.emailjs.com :
+       publicKey  → Account → General → "Public Key"
+       serviceId  → Email Services → your Gmail service → "Service ID"
+       templateId → Email Templates → the template that emails YOU (Marc) → "Template ID"
+       autoReplyTemplateId → the "thank you" template sent to the visitor ('' = no auto-reply)
+     While any of the first three still says PASTE_…, the form automatically
+     uses FormSubmit instead (see below), so it never stops working.        */
+  EMAILJS: {
+    publicKey:  'PASTE_PUBLIC_KEY',
+    serviceId:  'PASTE_SERVICE_ID',
+    templateId: 'PASTE_NOTIFICATION_TEMPLATE_ID',
+    autoReplyTemplateId: 'PASTE_AUTOREPLY_TEMPLATE_ID'  // '' = no auto-reply
+  },
+
   CONTACT_EMAIL: 'marcaustriapelayo@gmail.com',
   FORMSPREE_ID: '', // only for 'formspree' mode, e.g. 'xyzabcde' from https://formspree.io/f/xyzabcde
 

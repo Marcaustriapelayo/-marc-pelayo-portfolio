@@ -95,9 +95,29 @@ These two are **placeholders**: change them to what you are really learning. Emp
 
 Pick **one** option in `js/config.js`:
 
-### Option 0: FormSubmit (the default, no account needed)
+### Contact form (EmailJS) — the default
+EmailJS sends each message using **your own email designs**. The templates are in `tools/email-templates/`:
+- `notification.html`: the email **you** receive.
+- `auto-reply.html`: the "thank you" email the visitor receives (optional).
+
+`tools/` is kept off GitHub, so the templates only live on your computer. You paste them into EmailJS once.
+
+1. Sign up free at <https://www.emailjs.com>.
+2. **Email Services → Add New Service → Gmail.** Connect marcaustriapelayo@gmail.com. Copy the **Service ID**.
+3. **Email Templates → Create New Template** (do this twice):
+   - **Notification:** set "To Email" to your Gmail, set "Reply To" to `{{email}}`, and paste `notification.html` into the HTML/code editor. Copy its **Template ID**.
+   - **Auto-reply:** set "To Email" to `{{email}}` and paste `auto-reply.html`. Copy its **Template ID**.
+4. **Account → General:** copy the **Public Key**.
+5. Paste the 4 values into `EMAILJS` in `js/config.js`, keep `CONTACT_MODE: 'emailjs'`, then commit and push.
+
+The templates can use these values: `{{name}}`, `{{email}}`, `{{subject}}`, `{{message}}`, `{{time}}` (Philippine Time), `{{page}}`, `{{device}}` (e.g. "iPhone · Safari") and `{{site}}`.
+
+- **Not set up yet?** While any of the first three values still says `PASTE_…` (or EmailJS can't load), the form automatically uses FormSubmit (below), so it keeps working.
+- **No auto-reply?** Set `autoReplyTemplateId: ''`. If only the auto-reply fails, the visitor still sees "sent", because the message did reach you.
+
+### Option 0: FormSubmit (automatic fallback, no account needed)
 ```js
-CONTACT_MODE: 'formsubmit',
+CONTACT_MODE: 'formsubmit',   // or leave 'emailjs': FormSubmit is used until EmailJS is set up
 CONTACT_EMAIL: 'marcaustriapelayo@gmail.com',
 ```
 1. Open the site from a **web address** (Live Server in VS Code, or the live site). It does not work when you double-click `index.html` (`file://`).

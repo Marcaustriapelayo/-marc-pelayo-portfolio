@@ -743,11 +743,41 @@
     });
   }
 
-  /* ---------- Contact form (FormSubmit, Formspree or PHP, set in js/config.js) ---------- */
+  /* ---------- Contact form helpers for EmailJS ---------- */
+  // "Sunday, November 22, 2026 at 6:15 PM (Philippine Time)"
+  function manilaTime(){
+    var d = new Date(), tz = { timeZone: 'Asia/Manila' };
+    var day = new Intl.DateTimeFormat('en-US', Object.assign({ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }, tz)).format(d);
+    var time = new Intl.DateTimeFormat('en-US', Object.assign({ hour: 'numeric', minute: '2-digit', hour12: true }, tz)).format(d);
+    return (day + ' at ' + time + ' (Philippine Time)').replace(/[  ]/g, ' ');
+  }
+  // short readable device label, e.g. "iPhone · Safari", "Windows · Chrome"
+  function deviceLabel(){
+    var ua = navigator.userAgent || '';
+    var os = /iPhone/.test(ua) ? 'iPhone' : /iPad/.test(ua) ? 'iPad' : /Android/.test(ua) ? 'Android' :
+             /Windows/.test(ua) ? 'Windows' : /CrOS/.test(ua) ? 'ChromeOS' : /Mac OS X|Macintosh/.test(ua) ? 'Mac' :
+             /Linux/.test(ua) ? 'Linux' : 'Unknown device';
+    if (os === 'Mac' && navigator.maxTouchPoints > 1) os = 'iPad'; // iPadOS reports itself as a Mac
+    var br = /FBAN|FBAV/.test(ua) ? 'Facebook app' : /Instagram/.test(ua) ? 'Instagram app' : /Edg(A|iOS)?\//.test(ua) ? 'Edge' :
+             /OPR\/|Opera/.test(ua) ? 'Opera' : /SamsungBrowser/.test(ua) ? 'Samsung Internet' : /Firefox|FxiOS/.test(ua) ? 'Firefox' :
+             /CriOS|Chrome\//.test(ua) ? 'Chrome' : /Safari\//.test(ua) ? 'Safari' : 'Browser';
+    return os + ' · ' + br;
+  }
+  // EmailJS is only used when the SDK loaded AND the 3 required IDs are filled in
+  function emailjsSettings(){
+    var c = CONFIG.EMAILJS || {};
+    function ok(v){ v = String(v || '').trim(); return v && v.indexOf('PASTE_') === -1 ? v : ''; }
+    var s = { publicKey: ok(c.publicKey), serviceId: ok(c.serviceId), templateId: ok(c.templateId), autoReplyTemplateId: ok(c.autoReplyTemplateId) };
+    var ready = !!(window.emailjs && typeof window.emailjs.send === 'function' && s.publicKey && s.serviceId && s.templateId);
+    return ready ? s : null;
+  }
+
+  /* ---------- Contact form (EmailJS, FormSubmit, Formspree or PHP, set in js/config.js) ---------- */
   function initContactForm(){
     var form = $('contactForm');
     if (!form) return;
     var mode = String(CONFIG.CONTACT_MODE || 'formspree').toLowerCase();
+    var emailjsStarted = false;
     var fsId = String(CONFIG.FORMSPREE_ID || '').trim();
     var btn = form.querySelector('.f-send'), label = form.querySelector('.f-label'), status = $('formStatus');
     var EMAIL = 'marcaustriapelayo@gmail.com';
@@ -784,6 +814,40 @@
       form.setAttribute('aria-busy', on ? 'true' : 'false');
       label.textContent = on ? 'Sending…' : 'Send message';
     }
+    function sent(){
+      form.reset();
+      fields.forEach(function(el){ el.removeAttribute('aria-invalid'); el.closest('.field').classList.remove('bad'); $(el.getAttribute('aria-describedby')).textContent = ''; });
+      show('ok', 'Thank you! Your message was sent. Marc will reply by email soon.');
+      status.focus({ preventScroll: true });
+    }
+
+    // EmailJS: main email to Marc, then (optional) auto-reply to the sender
+    function sendEmailjs(s){
+      if (!emailjsStarted) { window.emailjs.init({ publicKey: s.publicKey }); emailjsStarted = true; }
+      var params = {
+        name: f.name.value.trim(),
+        email: f.email.value.trim(),
+        subject: f.subject.value,
+        message: f.message.value.trim(),
+        time: manilaTime(),
+        page: location.href,
+        device: deviceLabel(),
+        site: location.origin
+      };
+      setBusy(true); show('', '');
+      var timer;
+      var timeout = new Promise(function(_, reject){ timer = setTimeout(function(){ reject({ timeout: true }); }, 20000); });
+      Promise.race([window.emailjs.send(s.serviceId, s.templateId, params), timeout])
+        .then(function(){
+          sent(); // the message reached Marc → success, whatever happens to the auto-reply
+          if (s.autoReplyTemplateId) window.emailjs.send(s.serviceId, s.autoReplyTemplateId, params).catch(function(){});
+        })
+        .catch(function(err){
+          if (err && (err.timeout || err.status === 0)) show('err', 'Could not reach the server. Check your connection, or email ' + EMAIL + '.');
+          else show('err', 'Sorry, the message could not be sent. You can also email ' + EMAIL + '.');
+        })
+        .then(function(){ clearTimeout(timer); setBusy(false); });
+    }
 
     form.addEventListener('submit', function(e){
       e.preventDefault();
@@ -795,12 +859,20 @@
       // honeypot: a bot filled the hidden field → pretend it worked, send nothing
       if (f._gotcha && f._gotcha.value) { form.reset(); show('ok', 'Thank you! Your message was sent.'); return; }
 
+      // EmailJS when it's set up; otherwise fall back to FormSubmit automatically
+      var useMode = mode;
+      if (useMode === 'emailjs') {
+        var ejs = emailjsSettings();
+        if (ejs) { sendEmailjs(ejs); return; }
+        useMode = 'formsubmit';
+      }
+
       var url, body, headers = { Accept: 'application/json' };
       var to = String(CONFIG.CONTACT_EMAIL || EMAIL).trim();
-      if (mode === 'php') {
+      if (useMode === 'php') {
         url = form.getAttribute('action') || 'contact.php';
         body = new FormData(form);
-      } else if (mode === 'formspree') {
+      } else if (useMode === 'formspree') {
         if (!fsId || fsId === 'YOUR_FORM_ID') { show('err', 'The form is not connected yet. Please email ' + EMAIL + ' directly.'); return; }
         url = 'https://formspree.io/f/' + encodeURIComponent(fsId);
         body = new FormData(form);
@@ -832,12 +904,9 @@
         })
         .then(function(res){
           // only say "sent" when the service clearly answered OK
-          var sent = res.ok && (res.j.ok === true || res.j.success === true || res.j.success === 'true');
-          if (sent) {
-            form.reset();
-            fields.forEach(function(el){ el.removeAttribute('aria-invalid'); el.closest('.field').classList.remove('bad'); $(el.getAttribute('aria-describedby')).textContent = ''; });
-            show('ok', 'Thank you! Your message was sent. Marc will reply by email soon.');
-            status.focus({ preventScroll: true });
+          var ok = res.ok && (res.j.ok === true || res.j.success === true || res.j.success === 'true');
+          if (ok) {
+            sent();
           } else {
             var msg = res.j.message || res.j.error || (res.j.errors && res.j.errors.map(function(x){ return x.message; }).join(' ')) || 'Sorry, the message could not be sent.';
             if (/activat/i.test(msg)) msg = 'Almost ready: the form needs a one-time activation. Check the ' + to + ' inbox (or Spam) for the FormSubmit "Activate Form" email.';
