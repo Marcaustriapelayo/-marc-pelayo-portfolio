@@ -962,7 +962,7 @@
       hash: 'need-network', title: 'Network / Hardware Tech',
       brings: ['LAN Setup', 'Routers', 'Cabling', 'Custom PC Building', 'Upgrades (RAM, CPU, GPU, SSD)'],
       proof: 'Hands-on hardware repair, custom PC builds and upgrades.',
-      next: { label: 'Download CV', note: 'PDF with the full list of skills.', href: 'Marc-Adrian-Pelayo-CV.pdf', download: true }
+      next: { label: 'Download CV', note: 'PDF with the full list of skills.', href: 'Marc-Adrian-Pelayo-CV.pdf?v=20261127', download: true }
     },
     ojt: {
       hash: 'need-ojt', title: 'Intern / OJT',
